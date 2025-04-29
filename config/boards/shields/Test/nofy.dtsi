@@ -3,7 +3,6 @@
 
 / {
     chosen {
-        zmk,kscan = &kscan_0;
         zmk,physical-layout = &nofy_layout;
     };
 
@@ -11,6 +10,7 @@
         compatible = "zmk,physical-layout";
         display-name = "Default";
         transform = <&default_transform>;
+        kscan = &kscan_0;
         
         keys = <
             &key_physical_attrs 100 100    0   0    0     0     0
