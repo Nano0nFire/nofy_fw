@@ -3,15 +3,16 @@
 
 / {
     chosen {
-        zmk,kscan = &kscan0;
+        zmk,kscan = &kscan_0;
         zmk,physical-layout = &nofy_layout;
     };
 
-    nofy_layout {
+    nofy_layout: nofy_layout {
+        compatible = "zmk,physical-layout";
         transform = <&default_transform>;
     };
 
-    kscan0: kscan {
+    kscan_0: kscan {
 		compatible = "zmk,kscan-gpio-charlieplex";
 	};
 
