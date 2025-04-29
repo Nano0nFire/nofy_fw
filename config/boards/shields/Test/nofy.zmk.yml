@@ -6,6 +6,3 @@ url: https://github.com/Nano0nFire/nofy
 requires: [seeeduino_xiao_ble]
 features:
   - keys
-physical_layouts:
-  default_layout:
-    layout_file: "../../../../nofy.json"
