@@ -1,0 +1,4 @@
+name: nofy
+build:
+  settings:
+    board_root: config

@@ -1,0 +1,8 @@
+file_format: "1"
+id: nofy
+name: nofy
+type: shield
+url: https://github.com/Nano0nFire/nofy
+requires: [seeeduino_xiao_ble]
+features:
+  - keys

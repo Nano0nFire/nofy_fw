@@ -1,0 +1,5 @@
+config SHIELD_NOFY_R
+    def_bool $(shields_list_contains,nofy_R)
+
+config SHIELD_NOFY_L
+    def_bool $(shields_list_contains,nofy_L)
