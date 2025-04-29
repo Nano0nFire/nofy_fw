@@ -4,9 +4,6 @@
     status = "okay";
 };
 
-&sensors {
-    sensors = <&right_encoder>;
-};
 
 &default_transform {
     col-offset = <7>;
