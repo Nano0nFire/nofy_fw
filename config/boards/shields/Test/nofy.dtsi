@@ -9,6 +9,7 @@
 
     nofy_layout: nofy_layout {
         compatible = "zmk,physical-layout";
+        display-name = "Default";  // 必須プロパティを追加
         transform = <&default_transform>;
     };
 
