@@ -77,8 +77,8 @@
             >;
 
             sensor-bindings = <
-                &inc_dec_kp PG_UP     PAGE_DOWN
-                &inc_dec_kp VOLUME_UP VOLUME_DOWN
+                &inc_dec_kp INPUT_KEY_PAGEUP INPUT_KEY_PAGEDOWN
+                &inc_dec_kp INPUT_KEY_VOLUMEUP INPUT_KEY_VOLUMEDOWN
             >;
         };
 
@@ -109,8 +109,8 @@
             >;
 
             sensor-bindings = <
-                &inc_dec_kp PG_UP     PAGE_DOWN
-                &inc_dec_kp VOLUME_UP VOLUME_DOWN
+                &inc_dec_kp INPUT_KEY_PAGEUP INPUT_KEY_PAGEDOWN
+                &inc_dec_kp INPUT_KEY_VOLUMEUP INPUT_KEY_VOLUMEDOWN
             >;
         };
 
