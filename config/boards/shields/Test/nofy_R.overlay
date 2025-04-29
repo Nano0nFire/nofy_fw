@@ -4,7 +4,7 @@
     status = "okay";
 };
 
-sensors: sensors {
+&sensors {
     sensors = <&right_encoder>;
 };
 
