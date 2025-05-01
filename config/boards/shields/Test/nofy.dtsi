@@ -110,7 +110,7 @@
         triggers-per-rotation = <12>;
     };
 
-    zephyr_udc0: usbd {
+    zephyr_udc0: &usbd {
         status = "okay";
     };
 };
