@@ -109,8 +109,8 @@
         sensors = <&left_encoder &right_encoder>;
         triggers-per-rotation = <12>;
     };
+};
 
-    zephyr_udc0: &usbd {
-        status = "okay";
-    };
+&usbd {
+    status = "okay";
 };
