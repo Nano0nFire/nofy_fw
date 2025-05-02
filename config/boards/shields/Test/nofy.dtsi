@@ -106,7 +106,3 @@
         triggers-per-rotation = <12>;
     };
 };
-
-&usbd {
-    status = "okay";
-};
