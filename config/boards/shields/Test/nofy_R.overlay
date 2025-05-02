@@ -2,6 +2,8 @@
 
 &right_encoder {
     status = "okay";
+    a-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+    b-gpios = <&xiao_d 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
 };
 
 &default_transform {
