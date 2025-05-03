@@ -10,7 +10,7 @@
     row-offset = <6>;
 };
 
-&kscan_0 {
+&kscan0 {
     compatible = "zmk,kscan-gpio-charlieplex";
     interrupt-gpios = <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
     gpios
