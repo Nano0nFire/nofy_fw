@@ -65,7 +65,6 @@
             , <&key_physical_attrs 100 100 1200  200       0     0     0>
             , <&key_physical_attrs 100 100 1200  300       0     0     0>
             ;
-        };
     };
 
     kscan_0: kscan_0 {
