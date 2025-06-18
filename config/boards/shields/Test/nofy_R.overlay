@@ -1,4 +1,5 @@
 #include "nofy.dtsi"
+#include <input/processors.dtsi>
 
 &right_encoder {
     status = "okay";
