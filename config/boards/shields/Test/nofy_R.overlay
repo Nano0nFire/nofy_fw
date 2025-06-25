@@ -38,9 +38,10 @@
         >;
     };
 
-    &trackball_central_listener {
-        status = "okay";
+    trackball_listener {
+        compatible = "zmk,input-listener";
         device = <&trackball>;
+        input-processors = <&zip_temp_layer 4 500>;
     };
 };
 
