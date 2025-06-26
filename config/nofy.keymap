@@ -147,7 +147,7 @@
             bindings = <
 &kp N1  &kp Q      &kp W         &kp E         &kp R       &kp T                                 &mt LEFT_CONTROL AT_SIGN    &mt RIGHT_CONTROL ESCAPE  &kp Y          &kp U             &kp I      &kp O    &kp P        &kp F1
 &kp N2  &kp A      &kp S         &kp D         &kp F       &kp G                                 &kp COLON                   &kp SEMICOLON             &kp H          &kp J             &kp K      &kp L    &lt 4 ENTER  &kp F2
-&kp N3  &kp Z      &kp X         &kp C         &kp V       &kp B                                 &kp LEFT_BRACKET            &kp RIGHT_BRACKET         &kp N          &kp M             &kp COMMA  &kp DOT  &lt 4 SLASH  &kp F3
+&kp N3  &kp Z      &kp X         &kp C         &kp V       &kp B                                 &kp LEFT_BRACKET            &kp RIGHT_BRACKET         &kp N          &kp M             &kp COMMA  &kp DOT  &lt 5 SLASH  &kp F3
         &kp LCTRL  &kp LEFT_ALT  &kp LEFT_WIN  &lt 2 LEFT  &mt_exit_AML_on_tap LEFT_SHIFT SPACE  &lt 1 RIGHT                 &lt 3 DELETE              &kp BACKSPACE  &lt 1 UNDERSCORE
             >;
 
@@ -158,10 +158,10 @@
 
         NUM {
             bindings = <
-&trans  &kp AT_SIGN   &kp CARET     &kp COLON     &kp AMPERSAND  &kp BACKSLASH  &bootloader    &bootloader  &trans  &trans  &trans  &trans  &to 7   &trans
-&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4   &kp N5         &kp EQUAL      &trans       &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp NUMBER_6  &kp N7        &kp N8        &kp N9         &kp N0         &kp MINUS      &kp PLUS     &trans  &trans  &trans  &trans  &trans  &trans
-        &trans        &trans        &trans        &trans         &trans         &trans         &trans       &trans  &trans
+&trans  &kp AT_SIGN   &kp CARET     &kp COLON     &kp AMPERSAND  &kp BACKSLASH  &trans       &bootloader  &trans     &trans  &trans  &trans  &to 7   &trans
+&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4   &kp N5         &kp EQUAL    &trans       &trans     &trans  &trans  &trans  &trans  &trans
+&trans  &kp NUMBER_6  &kp N7        &kp N8        &kp N9         &kp N0         &kp MINUS    &kp PLUS     &trans     &trans  &trans  &trans  &trans  &trans
+        &bootloader   &trans        &trans        &trans         &trans         &trans       &kp LC(V)    &kp LC(C)  &trans
             >;
         };
 
