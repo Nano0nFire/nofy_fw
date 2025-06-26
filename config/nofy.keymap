@@ -87,6 +87,20 @@
             bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER &exit_AML>;
             label = "KP_exit_AML";
         };
+
+        scroll_up: scroll_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&msc SCRL_UP>;
+            label = "SCROLL_UP";
+        };
+
+        scroll_down: scroll_down {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&msc SCRL_DOWN>;
+            label = "SCROLL_DOWN";
+        };
     };
 
     behaviors {
@@ -137,7 +151,9 @@
         &kp LCTRL  &kp LEFT_ALT  &kp LEFT_WIN  &lt 2 LEFT  &mt_exit_AML_on_tap LEFT_SHIFT SPACE  &lt 1 RIGHT                 &lt 3 DELETE              &kp BACKSPACE  &lt 1 UNDERSCORE
             >;
 
-            sensor-bindings = <&inc_dec_kp LEFT RIGHT>, <&encoder_behavior>;
+            sensor-bindings =
+                <&inc_dec_kp LEFT RIGHT>,
+                <&inc_dec_kp UP_ARROW DOWN>;
         };
 
         NUM {
@@ -174,6 +190,8 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans    &trans    &trans    &trans  &trans
         &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans
             >;
+
+            sensor-bindings = <&inc_dec_kp K_SCROLL_DOWN K_SCROLL_UP>;
         };
 
         SCROLL {
