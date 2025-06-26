@@ -115,6 +115,13 @@
             flavor = "balanced";
             quick-tap-ms = <200>;
         };
+
+        encoder_behavior: encoder_behavior {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "ENCODER_BEHAVIOR";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+        };
     };
 
     keymap {
@@ -128,9 +135,7 @@
         &kp LCTRL  &kp LEFT_ALT  &kp LEFT_WIN  &lt 2 LEFT  &mt_exit_AML_on_tap LEFT_SHIFT SPACE  &lt 1 RIGHT         &lt 3 DELETE       &kp BACKSPACE  &lt 1 UNDERSCORE
             >;
 
-            sensor-bindings =
-                <&inc_dec_kp RIGHT LEFT>,
-                <&inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&inc_dec_kp LEFT RIGHT>, <&encoder_behavior>;
         };
 
         NUM {
@@ -151,7 +156,7 @@
             >;
         };
 
-        ARROW {
+        Shortcut {
             bindings = <
 &trans  &trans      &trans     &trans     &trans     &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &kp LC(F2)  &kp LC(S)  &kp LC(L)  &kp LC(Y)  &kp LC(Z)  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
