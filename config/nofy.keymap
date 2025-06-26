@@ -142,7 +142,7 @@
 
         NUM {
             bindings = <
-&trans  &kp AT_SIGN   &kp CARET     &kp COLON     &kp AMPERSAND  &kp BACKSLASH  &bootloader    &bootloader  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp AT_SIGN   &kp CARET     &kp COLON     &kp AMPERSAND  &kp BACKSLASH  &bootloader    &bootloader  &trans  &trans  &trans  &trans  &to 7   &trans
 &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4   &kp N5         &kp EQUAL      &trans       &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &kp NUMBER_6  &kp N7        &kp N8        &kp N9         &kp N0         &kp MINUS      &kp PLUS     &trans  &trans  &trans  &trans  &trans  &trans
         &trans        &trans        &trans        &trans         &trans         &trans         &trans       &trans  &trans
@@ -191,6 +191,15 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
         &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+        };
+
+        game {
+            bindings = <
+&trans  &kp ESC    &kp N1  &kp N2  &kp N3  &kp N4     &kp N5           &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp TAB    &kp Q   &kp W   &kp E   &kp R      &kp T            &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LSHFT  &kp A   &kp S   &kp D   &kp F      &kp G            &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &kp LCTRL  &trans  &trans  &kp F1  &kp SPACE  &kp LC(SPACE)    &trans  &trans  &trans
             >;
         };
     };
