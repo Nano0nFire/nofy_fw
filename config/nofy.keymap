@@ -11,29 +11,45 @@
 
 // 参考https://note.com/kloir_z/n/n314e739f03a1
 
-#define JP_DQUOTE       AT                // "
-#define JP_AMPERSAND    CARET             // &
-#define JP_QUOTE        AMPERSAND         // '
-#define JP_EQUAL        UNDER             // =
-#define JP_CARET        EQUAL             // ^
-#define JP_YEN          0x89              // ¥
-#define JP_PLUS         COLON             // +
-#define JP_TILDE        PLUS              // ~
-#define JP_PIPE         LS(0x89)          // |
-#define JP_AT           LEFT_BRACKET      // @
-#define JP_COLON        SINGLE_QUOTE      // :
-#define JP_ASTERISK     DOUBLE_QUOTES     // *
-#define JP_BACKQUOTE    LEFT_BRACE        // `
-#define JP_UNDERSCORE   LS(0x87)          // _
-#define JP_LBRACKET     RIGHT_BRACKET     // [
-#define JP_RBRACKET     BACKSLASH         // ]
-#define JP_LPAREN       ASTERISK          // (
-#define JP_RPAREN       LEFT_PARENTHESIS  // )
-#define JP_LBRACE       RIGHT_BRACE       // {
-#define JP_RBRACE       PIPE              // }
-#define JP_KANA         LANGUAGE_1        // かな
-#define JP_EISU         LANGUAGE_2        // 英数
-#define JP_HANZEN       GRAVE             // 半角/全角
+#define JP_ZKHK  GRAVE        // Zenkaku ↔ Hankaku ↔ Kanji (半角 ↔ 全角 ↔ 漢字)
+#define JP_MINUS MINUS        // -
+#define JP_CARET EQUAL        // ^
+#define JP_YEN   INT3         // ¥
+#define JP_AT    LBKT         // @
+#define JP_LBKT  RBKT         // [
+#define JP_EISU  CAPS         // Eisū (英数)
+#define JP_SEMI  SEMI         // ;
+#define JP_COLON SQT          // :
+#define JP_RBKT  NUHS         // ]
+#define JP_COMMA COMMA        // ,
+#define JP_DOT   DOT          // .
+#define JP_SLASH SLASH        // /
+#define JP_BSLH  INT1         // (backslash)
+#define JP_MHEN  INT5         // Muhenkan (無変換)
+#define JP_HENK  INT4         // Henkan (変換)
+#define JP_KANA  INT2         // Katakana ↔ Hiragana ↔ Rōmaji (カタカナ ↔ ひらがな ↔ ローマ字)
+#define JP_EXCL  LS(N1)       // !
+#define JP_DQT   LS(N2)       // "
+#define JP_HASH  LS(N3)       // #
+#define JP_DLLR  LS(N4)       // $
+#define JP_PRCNT LS(N5)       // %
+#define JP_AMPS  LS(N6)       // &
+#define JP_SQT   LS(N7)       // '
+#define JP_LPAR  LS(N8)       // (
+#define JP_RPAR  LS(N9)       // )
+#define JP_EQUAL LS(JP_MINUS) // =
+#define JP_TILDE LS(JP_CARET) // ~
+#define JP_PIPE  LS(JP_YEN)   // |
+#define JP_GRAVE LS(JP_AT)    // `
+#define JP_LBRC  LS(JP_LBKT)  // {
+#define JP_CAPS  LS(JP_EISU)  // Caps Lock
+#define JP_PLUS  LS(JP_SEMI)  // +
+#define JP_ASTRK LS(JP_COLON) // *
+#define JP_RBRC  LS(JP_RBKT)  // }
+#define JP_LT    LS(JP_COMMA) // <
+#define JP_RT    LS(JP_DOT)   // >
+#define JP_QMARK LS(JP_SLASH) // ?
+#define JP_UNDER LS(JP_BSLH)  // _
 
 &mt {
     flavor = "balanced";
@@ -145,10 +161,10 @@
 
         default_layer {
             bindings = <
-&kp N1  &kp Q      &kp W         &kp E         &kp R       &kp T                                 &mt LEFT_CONTROL AT_SIGN    &mt RIGHT_CONTROL ESCAPE  &kp Y          &kp U             &kp I      &kp O    &kp P        &kp F1
-&kp N2  &kp A      &kp S         &kp D         &kp F       &kp G                                 &kp COLON                   &kp SEMICOLON             &kp H          &kp J             &kp K      &kp L    &lt 4 ENTER  &kp F2
-&kp N3  &kp Z      &kp X         &kp C         &kp V       &kp B                                 &kp LEFT_BRACKET            &kp RIGHT_BRACKET         &kp N          &kp M             &kp COMMA  &kp DOT  &lt 5 SLASH  &kp F3
-        &kp LCTRL  &kp LEFT_ALT  &kp LEFT_WIN  &lt 2 LEFT  &mt_exit_AML_on_tap LEFT_SHIFT SPACE  &lt 1 RIGHT                 &lt 3 DELETE              &kp BACKSPACE  &lt 1 UNDERSCORE
+&kp N1  &kp Q      &kp W         &kp E         &kp R       &kp T                                 &mt LEFT_CONTROL JP_DQUOTE    &mt RIGHT_CONTROL ESCAPE  &kp Y          &kp U             &kp I      &kp O    &kp P        &kp F1
+&kp N2  &kp A      &kp S         &kp D         &kp F       &kp G                                 &kp JP_MINUS                   &kp JP_SEMI             &kp H          &kp J             &kp K      &kp L    &lt 4 ENTER  &kp F2
+&kp N3  &kp Z      &kp X         &kp C         &kp V       &kp B                                 &kp JP_LBKT            &kp JP_RBKT         &kp N          &kp M             &kp COMMA  &kp DOT  &lt 5 SLASH  &kp F3
+        &mt LEFT_CONTROL BACKSLASH  &kp LEFT_ALT  &kp LEFT_WIN  &lt 2 LEFT  &mt_exit_AML_on_tap LEFT_SHIFT SPACE  &lt 1 RIGHT                 &lt 3 DELETE              &kp BACKSPACE  &lt 1 UNDERSCORE
             >;
 
             sensor-bindings =
@@ -158,7 +174,7 @@
 
         NUM {
             bindings = <
-&trans  &kp AT_SIGN   &kp CARET     &kp COLON     &kp AMPERSAND  &kp BACKSLASH  &trans       &bootloader  &trans     &trans  &trans  &trans  &to 7   &trans
+&trans  &kp JP_AT   &kp JP_CARET     &kp JP_COLON     &kp JP_AMPERSAND  &kp JP_YEN  &trans       &bootloader  &trans     &trans  &trans  &trans  &to 7   &trans
 &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4   &kp N5         &kp EQUAL    &trans       &trans     &trans  &trans  &trans  &trans  &trans
 &trans  &kp NUMBER_6  &kp N7        &kp N8        &kp N9         &kp N0         &kp MINUS    &kp PLUS     &trans     &trans  &trans  &trans  &trans  &trans
         &bootloader   &trans        &trans        &trans         &trans         &trans       &kp LC(V)    &kp LC(C)  &trans
@@ -167,9 +183,9 @@
 
         ShiftNUM {
             bindings = <
-&trans  &kp GRAVE         &kp TILDE   &kp ASTERISK  &kp PIPE    &kp UNDERSCORE  &trans            &trans        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LS(NUMBER_1)  &kp LS(N2)  &kp LS(N3)    &kp LS(N4)  &kp LS(N5)      &kp UNDERSCORE    &trans        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LS(N6)        &kp LS(N7)  &kp LS(N8)    &kp LS(N9)  &kp LS(N0)      &kp EQUAL         &kp ASTERISK  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp JP_SQT         &kp JP_TILDE   &kp JP_ASTRK  &kp JP_PIPE    &kp JP_UNDER  &trans            &trans        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LS(NUMBER_1)  &kp LS(N2)  &kp LS(N3)    &kp LS(N4)  &kp LS(N5)      &kp JP_UNDER    &trans        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LS(N6)        &kp LS(N7)  &kp LS(N8)    &kp LS(N9)  &kp LS(N0)      &kp JP_EQUAL         &kp ASTERISK  &trans  &trans  &trans  &trans  &trans  &trans
         &trans            &trans      &trans        &trans      &trans          &trans            &trans        &trans  &trans
             >;
         };
