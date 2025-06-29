@@ -154,6 +154,24 @@
 
             tap-ms = <20>;
         };
+
+        mt_trans: mt_trans {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MT_TRANS";
+            bindings = <&kp>, <&trans>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        mt_boot: mt_boot {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MT_BOOT";
+            bindings = <&bootloader>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <50000>;
+        };
     };
 
     keymap {
@@ -161,10 +179,10 @@
 
         default_layer {
             bindings = <
-&kp N1  &kp Q                       &kp W         &kp E         &kp R       &kp T                                 &mt LEFT_CONTROL LS(N2)    &mt RIGHT_CONTROL ESCAPE  &kp Y             &kp U             &kp I      &kp O    &kp P        &kp F1
-&kp N2  &kp A                       &kp S         &kp D         &kp F       &kp G                                 &kp MINUS                  &kp SEMI               &kp H             &kp J             &kp K      &kp L    &lt 4 ENTER  &kp F2
-&kp N3  &kp Z                       &kp X         &kp C         &kp V       &kp B                                 &kp RBKT                   &kp NUHS               &kp N             &kp M             &kp COMMA  &kp DOT  &lt 5 SLASH  &kp F3
-        &mt LEFT_CONTROL INT1  &kp LEFT_ALT  &kp LEFT_WIN  &lt 2 LEFT  &mt_exit_AML_on_tap LEFT_SHIFT SPACE  &lt 1 RIGHT                   &lt 3 DELETE              &kp BACKSPACE     &lt 1 UNDERSCORE
+&kp N1  &mt_boot 0 Q           &kp W         &kp E         &kp R       &kp T                                 &mt_trans LS(NUMBER_2) 0    &mt_trans ESC 0  &kp Y          &kp U             &kp I      &kp O    &mt_boot 0 P  &kp F1
+&kp N2  &kp A                  &kp S         &kp D         &kp F       &kp G                                 &kp MINUS                   &kp SEMI         &kp H          &kp J             &kp K      &kp L    &lt 4 ENTER   &kp F2
+&kp N3  &kp Z                  &kp X         &kp C         &kp V       &kp B                                 &kp RBKT                    &kp NUHS         &kp N          &kp M             &kp COMMA  &kp DOT  &lt 5 SLASH   &kp F3
+        &mt LEFT_CONTROL INT1  &kp LEFT_ALT  &kp LEFT_WIN  &lt 2 LEFT  &mt_exit_AML_on_tap LEFT_SHIFT SPACE  &lt 1 RIGHT                 &lt 3 DELETE     &kp BACKSPACE  &lt 1 UNDERSCORE
             >;
 
             sensor-bindings =
@@ -174,28 +192,28 @@
 
         NUM {
             bindings = <
-&trans  &kp LBKT   &kp EQUAL     &kp SQT     &kp LS(N6)  &kp INT3  &trans       &bootloader  &trans     &trans  &trans  &trans  &to 7   &trans
-&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4   &kp N5         &kp EQUAL    &trans       &trans     &trans  &trans  &trans  &trans  &trans
-&trans  &kp NUMBER_6  &kp N7        &kp N8        &kp N9         &kp N0         &kp MINUS    &kp PLUS     &trans     &trans  &trans  &trans  &trans  &trans
-        &bootloader   &trans        &trans        &trans         &trans         &trans       &kp LC(V)    &kp LC(C)  &trans
+&trans  &kp LBKT      &kp EQUAL     &kp SQT       &kp LS(N6)    &kp INT3  &trans       &trans           &trans          &trans  &trans  &trans  &to 7   &trans
+&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5    &kp EQUAL    &trans           &trans          &trans  &trans  &trans  &trans  &trans
+&trans  &kp NUMBER_6  &kp N7        &kp N8        &kp N9        &kp N0    &kp MINUS    &kp PLUS         &trans          &trans  &trans  &trans  &trans  &trans
+        &trans        &trans        &trans        &trans        &trans    &trans       &kp LC(K_PASTE)  &kp LC(K_COPY)  &trans
             >;
         };
 
         ShiftNUM {
             bindings = <
-&trans  &kp LS(N7)         &kp LS(EQUAL)   &kp LS(COLON)  &kp LS(INT3)    &kp LS(INT1)  &trans            &trans        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LS(NUMBER_1)  &kp LS(N2)  &kp LS(N3)    &kp LS(N4)  &kp LS(N5)      &kp LS(INT1)    &trans        &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LS(N6)        &kp LS(N7)  &kp LS(N8)    &kp LS(N9)  &kp LS(N0)      &kp LS(MINUS)         &kp ASTERISK  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans            &trans      &trans        &trans      &trans          &trans            &trans        &trans  &trans
+&trans  &kp LS(N7)        &kp LS(EQUAL)  &kp LS(COLON)  &kp LS(INT3)  &kp LS(INT1)  &trans           &trans        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LS(NUMBER_1)  &kp LS(N2)     &kp LS(N3)     &kp LS(N4)    &kp LS(N5)    &kp LS(INT1)     &trans        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LS(N6)        &kp LS(N7)     &kp LS(N8)     &kp LS(N9)    &kp LS(N0)    &kp LS(MINUS)    &kp ASTERISK  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans            &trans         &trans         &trans        &trans        &trans           &trans        &trans  &trans
             >;
         };
 
         Shortcut {
             bindings = <
-&trans  &trans      &trans     &trans     &trans     &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LC(F2)  &kp LC(S)  &kp LC(L)  &kp LC(Y)  &kp LC(Z)  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans      &trans     &trans     &trans     &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans      &trans     &trans     &trans     &trans     &trans    &trans  &trans  &trans
+&trans  &trans      &trans     &trans      &trans      &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LC(F2)  &kp LC(S)  &kp LC(L)   &kp LC(Y)   &kp LC(Z)  &kp F12    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans      &trans     &kp LS(N8)  &kp LS(N9)  &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans      &trans     &trans      &trans      &trans     &trans     &trans  &trans  &trans
             >;
         };
 
