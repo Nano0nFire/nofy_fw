@@ -186,14 +186,14 @@
             compatible = "zmk,behavior-tap-dance";
             label = "TD_RTOL1";
             #binding-cells = <0>;
-            bindings = <&lt 1 RIGHT>, <&kp RIGHT>;
+            bindings = <&lt 1 RIGHT>, <&mt RIGHT RIGHT>;
         };
 
         td_LtoL2: td_LtoL2 {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_LTOL2";
             #binding-cells = <0>;
-            bindings = <&lt 2 LEFT>, <&kp_exit_AML LEFT>;
+            bindings = <&lt 2 LEFT>, <&kp LEFT>;
         };
 
         td_BStoL3: td_BStoL3 {
