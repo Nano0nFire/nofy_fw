@@ -3,10 +3,19 @@ if SHIELD_NOFY_R
 config ZMK_KEYBOARD_NAME
     default "nofy_R"
 
+config NFCT_PINS_AS_GPIOS
+    default y
+
+config ZMK_BLE
+    default y
+
 config ZMK_SPLIT
     default y
 
 config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+config ZMK_POINTING
     default y
 
 endif
@@ -15,6 +24,9 @@ if SHIELD_NOFY_L
 
 config ZMK_KEYBOARD_NAME
     default "nofy_L"
+
+config NFCT_PINS_AS_GPIOS
+    default y
 
 config ZMK_SPLIT
     default y

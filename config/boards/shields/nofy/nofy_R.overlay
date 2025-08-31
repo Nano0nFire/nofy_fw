@@ -24,27 +24,6 @@
         ;
 };
 
-/ {
-    /omit-if-no-ref/ zip_temp_layer: zip_temp_layer {
-        compatible = "zmk,input-processor-temp-layer";
-        #input-processor-cells = <2>;
-        require-prior-idle-ms = <200>;
-        excluded-positions = <
-            23
-            24
-            25
-            26
-            46
-        >;
-    };
-
-    trackball_listener {
-        compatible = "zmk,input-listener";
-        device = <&trackball>;
-        //input-processors = <&zip_temp_layer 4 500>;
-    };
-};
-
 &pinctrl {
     spi0_default: spi0_default {
         group1 {
@@ -80,6 +59,25 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        scroll-layers = <5>;
+        cpi = <600>;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
     };
+};
+
+&trackball_listener {
+    status = "okay";
+    device = <&trackball>;
+
+    scroller {
+        layers = <5>;
+        input-processors =
+            // <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,        //X軸とY軸の入れ替え
+            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,       //X軸反転
+            <&zip_xy_to_scroll_mapper>,                         //スクロールモードに変更
+            <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>,   //スクロールのX軸反転
+            <&zip_scroll_scaler 1 5>;                           //スクロール量を1/4倍
+    };
+
 };
