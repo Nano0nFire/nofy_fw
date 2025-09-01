@@ -247,10 +247,10 @@
 
         Shortcut {
             bindings = <
-&trans  &trans      &trans     &trans      &trans      &trans     &trans       &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LC(F2)  &kp LC(S)  &kp LC(L)   &kp LC(Y)   &kp LC(Z)  &kp F12      &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans      &trans     &kp LS(N8)  &kp LS(N9)  &trans     &trans       &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans      &trans     &trans      &trans      &kp LC(C)  &kp LC(V)    &trans  &trans  &trans
+&trans  &trans      &trans     &trans           &trans      &trans     &trans       &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LC(F2)  &kp LC(S)  &kp LC(L)        &kp LC(Y)   &kp LC(Z)  &kp F12      &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans      &trans     &kp LS(N8)       &kp LS(N9)  &trans     &trans       &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans      &trans     &kp PRINTSCREEN  &trans      &kp LC(C)  &kp LC(V)    &trans  &trans  &trans
             >;
         };
 
