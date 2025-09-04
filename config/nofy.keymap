@@ -188,7 +188,7 @@
             compatible = "zmk,behavior-sensor-rotate";
             label = "SCROLL_UP_DOWN";
             #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
 
             tap-ms = <20>;
         };
@@ -197,7 +197,7 @@
             compatible = "zmk,behavior-sensor-rotate";
             label = "SCROLL_RIGHT_LEFT";
             #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
+            bindings = <&msc SCRL_RIGHT>, <&msc SCRL_LEFT>;
 
             tap-ms = <20>;
         };
