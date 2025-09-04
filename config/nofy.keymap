@@ -184,12 +184,21 @@
             quick-tap-ms = <200>;
         };
 
-        scroll_up_down: encoder_mouse_wheel_up_down {
+        scroll_up_down: scroll_up_down {
             compatible = "zmk,behavior-sensor-rotate";
-            label = "ENCODER_SCRL_UD";
-
+            label = "SCROLL_UP_DOWN";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+
+            tap-ms = <20>;
+        };
+
+        scroll_right_left: scroll_right_left {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "SCROLL_RIGHT_LEFT";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
+
             tap-ms = <20>;
         };
     };
@@ -212,11 +221,15 @@
 
         NUM {
             bindings = <
-&trans  &kp LBKT      &kp EQUAL     &kp SQT       &kp LS(N6)    &kp INT3  &trans       &trans     &trans     &trans  &trans  &trans  &to 7   &trans
-&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5    &kp EQUAL    &trans     &trans     &trans  &trans  &trans  &trans  &trans
-&trans  &kp NUMBER_6  &kp N7        &kp N8        &kp N9        &kp N0    &kp MINUS    &kp PLUS   &trans     &trans  &trans  &trans  &trans  &trans
-        &trans        &trans        &trans        &trans        &trans    &trans       &kp LC(V)  &kp LC(C)  &trans
+&trans  &kp LBKT      &kp EQUAL     &kp SQT       &kp LS(N6)    &kp INT3  &trans       &kp K_MUTE  &trans     &trans  &trans  &trans  &to 7   &trans
+&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5    &kp EQUAL    &trans      &trans     &trans  &trans  &trans  &trans  &trans
+&trans  &kp NUMBER_6  &kp N7        &kp N8        &kp N9        &kp N0    &kp MINUS    &kp PLUS    &trans     &trans  &trans  &trans  &trans  &trans
+        &trans        &trans        &trans        &trans        &trans    &trans       &kp LC(V)   &kp LC(C)  &trans
             >;
+
+            sensor-bindings =
+                <&inc_dec_kp 0 0>,
+                <&inc_dec_kp C_VOLUME_DOWN C_VOLUME_UP>;
         };
 
         ShiftNUM {
@@ -245,7 +258,7 @@
         &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp K_SCROLL_DOWN K_SCROLL_UP>;
+            sensor-bindings = <&scroll_right_left>, <&scroll_up_down>;
         };
 
         SCROLL {
@@ -274,7 +287,7 @@
         &kp LCTRL  &kp LEFT_ALT  &trans  &kp F1  &kp SPACE  &sg      &trans  &trans  &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOLUME_DOWN C_VOLUME_UP>;
         };
     };
 };
