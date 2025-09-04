@@ -8,6 +8,7 @@
 #define MOUSE 4
 #define SCROLL 5
 #define NUM 6
+#define ZMK_MOUSE_DEFAULT_SCRL_VAL 100
 
 // 参考https://note.com/kloir_z/n/n314e739f03a1
 
@@ -181,6 +182,15 @@
             #binding-cells = <2>;
             tapping-term-ms = <150>;
             quick-tap-ms = <200>;
+        };
+
+        scroll_up_down: encoder_mouse_wheel_up_down {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "ENCODER_SCRL_UD";
+
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+            tap-ms = <20>;
         };
     };
 
