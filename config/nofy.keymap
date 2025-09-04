@@ -80,12 +80,12 @@
 
         left-boot {
             bindings = <&bootloader>;
-            key-positions = <6 42 47>;
+            key-positions = <42 47 5>;
         };
 
         right-boot {
             bindings = <&bootloader>;
-            key-positions = <48 50 7>;
+            key-positions = <48 50 8>;
         };
 
         sys-reset {
