@@ -76,6 +76,16 @@
             bindings = <&kp LANGUAGE_1>;
             key-positions = <24 23>;
         };
+
+        left-boot {
+            bindings = <&bootloader>;
+            key-positions = <6 42 47>;
+        };
+
+        right-boot {
+            bindings = <&bootloader>;
+            key-positions = <48 50 7>;
+        };
     };
 
     macros {
@@ -117,42 +127,26 @@
             bindings = <&msc SCRL_DOWN>;
             label = "SCROLL_DOWN";
         };
+
+        sg: sg {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&kp SPACE>,
+                <&macro_tap>,
+                <&kp LEFT_CONTROL>,
+                <&macro_press>;
+
+            label = "SG";
+        };
     };
 
     behaviors {
-        lt_to_layer_0: lt_to_layer_0 {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_TO_0";
-            bindings = <&mo &to_layer_0>;
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-        };
-
         tog_off: toggle_layer_off {
             compatible = "zmk,behavior-toggle-layer";
             #binding-cells = <1>;
             display-name = "Toggle Layer Off";
             toggle-mode = "off";
-        };
-
-        mt_exit_AML_on_tap: mt_exit_AML_on_tap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MT_exit_AML_ON_TAP";
-            bindings = <&kp>, <&kp_exit_AML>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            flavor = "balanced";
-            quick-tap-ms = <200>;
-        };
-
-        encoder_behavior: encoder_behavior {
-            compatible = "zmk,behavior-sensor-rotate";
-            label = "ENCODER_BEHAVIOR";
-            #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
-
-            tap-ms = <20>;
         };
 
         mt_trans: mt_trans {
@@ -164,56 +158,10 @@
             tapping-term-ms = <200>;
         };
 
-        mt_boot: mt_boot {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MT_BOOT";
-            bindings = <&bootloader>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <50000>;
-        };
-
-        test: test {
-            compatible = "zmk,behavior-hold-tap";
-            label = "TEST";
-            bindings = <&kp>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <50000>;
-        };
-
-        td_RtoL1: td_RtoL1 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_RTOL1";
-            #binding-cells = <0>;
-            bindings = <&lt 1 RIGHT>, <&mt RIGHT RIGHT>;
-        };
-
-        td_LtoL2: td_LtoL2 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_LTOL2";
-            #binding-cells = <0>;
-            bindings = <&lt 2 LEFT>, <&kp LEFT>;
-        };
-
-        td_DeltoL3: td_DeltoL3 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_DELTOL3";
-            #binding-cells = <0>;
-            bindings = <&lt 3 DELETE>, <&kp DELETE>;
-        };
-
-        td_SPtoShift: td_SPtoShift {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_SPTOSHIFT";
-            #binding-cells = <0>;
-            bindings = <&mt LEFT_SHIFT SPACE>, <&kp SPACE>;
-        };
-
         HoldToLayer: HoldToLayer {
             compatible = "zmk,behavior-hold-tap";
             label = "HOLDTOLAYER";
-            bindings = <&to>, <&kp>;
+            bindings = <&mo>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <100>;
@@ -236,10 +184,10 @@
 
         default_layer {
             bindings = <
-&kp N1  &kp Q             &kp W         &kp E         &kp R                &kp T                        &mt_trans ESCAPE 0      &mt_trans ESC 0        &kp Y          &kp U             &kp I      &kp O    &kp P        &kp F1
-&kp N2  &kp A             &kp S         &kp D         &kp F                &kp G                        &kp MINUS               &kp SEMI               &kp H          &kp J             &kp K      &kp L    &lt 4 ENTER  &kp F2
-&kp N3  &kp Z             &kp X         &kp C         &kp V                &kp B                        &kp RBKT                &kp NUHS               &kp N          &kp M             &kp COMMA  &kp DOT  &lt 5 SLASH  &kp F3
-        &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_WIN  &HoldToLayer 2 LEFT  &HoldToKey LEFT_SHIFT SPACE  &HoldToLayer 1 RIGHT    &HoldToLayer 3 DELETE  &kp BACKSPACE  &lt 1 UNDERSCORE
+&kp N1  &kp Q             &kp W         &kp E         &kp R                &kp T                        &mt_trans ESCAPE 0      &mt_trans ESC 0        &kp Y          &kp U            &kp I      &kp O    &kp P        &kp F1
+&kp N2  &kp A             &kp S         &kp D         &kp F                &kp G                        &kp MINUS               &kp SEMI               &kp H          &kp J            &kp K      &kp L    &lt 4 ENTER  &kp F2
+&kp N3  &kp Z             &kp X         &kp C         &kp V                &kp B                        &kp RBKT                &kp NUHS               &kp N          &kp M            &kp COMMA  &kp DOT  &lt 5 SLASH  &kp F3
+        &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_WIN  &HoldToLayer 2 LEFT  &HoldToKey LEFT_SHIFT SPACE  &HoldToLayer 1 RIGHT    &HoldToLayer 3 DELETE  &kp BACKSPACE  &lt 1 BACKSLASH
             >;
 
             sensor-bindings =
@@ -249,10 +197,10 @@
 
         NUM {
             bindings = <
-&trans  &kp LBKT      &kp EQUAL     &kp SQT       &kp LS(N6)    &kp INT3  &trans       &bootloader  &sys_reset  &trans  &trans  &trans  &to 7   &trans
-&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5    &kp EQUAL    &trans       &trans      &trans  &trans  &trans  &trans  &trans
-&trans  &kp NUMBER_6  &kp N7        &kp N8        &kp N9        &kp N0    &kp MINUS    &kp PLUS     &trans      &trans  &trans  &trans  &trans  &trans
-        &bootloader   &trans        &trans        &trans        &trans    &trans       &kp LC(V)    &kp LC(C)   &trans
+&trans  &kp LBKT      &kp EQUAL     &kp SQT       &kp LS(N6)    &kp INT3  &trans       &trans     &trans     &trans  &trans  &trans  &to 7   &trans
+&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp N5    &kp EQUAL    &trans     &trans     &trans  &trans  &trans  &trans  &trans
+&trans  &kp NUMBER_6  &kp N7        &kp N8        &kp N9        &kp N0    &kp MINUS    &kp PLUS   &trans     &trans  &trans  &trans  &trans  &trans
+        &trans        &trans        &trans        &trans        &trans    &trans       &kp LC(V)  &kp LC(C)  &trans
             >;
         };
 
@@ -305,11 +253,13 @@
 
         game {
             bindings = <
-&trans  &kp ESC    &kp N1        &kp N2  &kp N3  &kp N4     &kp N5           &trans  &trans  &trans  &trans  &trans  &to 0   &trans
-&trans  &kp TAB    &kp Q         &kp W   &kp E   &kp R      &kp T            &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LSHFT  &kp A         &kp S   &kp D   &kp F      &kp G            &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &kp LCTRL  &kp LEFT_ALT  &trans  &kp F1  &kp SPACE  &kp LC(SPACE)    &trans  &trans  &trans
+&trans  &kp ESC    &kp N1        &kp N2  &kp N3  &kp N4     &kp M    &trans  &trans  &trans  &trans  &trans  &to 0   &trans
+&trans  &kp TAB    &kp Q         &kp W   &kp E   &kp R      &kp T    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LSHFT  &kp A         &kp S   &kp D   &kp F      &kp G    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &kp LCTRL  &kp LEFT_ALT  &trans  &kp F1  &kp SPACE  &sg      &trans  &trans  &trans
             >;
+
+            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
         };
     };
 };
