@@ -188,7 +188,7 @@
             compatible = "zmk,behavior-sensor-rotate";
             label = "SCROLL_UP_DOWN";
             #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+            bindings = <&msc MOVE_Y(-15)>, <&msc MOVE_Y(15)>;
 
             tap-ms = <20>;
         };
@@ -197,9 +197,18 @@
             compatible = "zmk,behavior-sensor-rotate";
             label = "SCROLL_RIGHT_LEFT";
             #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_RIGHT>, <&msc SCRL_LEFT>;
+            bindings = <&msc MOVE_X(-15)>, <&msc MOVE_X(15)>;
 
             tap-ms = <20>;
+        };
+
+        test: test {
+            compatible = "zmk,behavior-input-two-axis";
+            label = "TEST";
+            #binding-cells = <1>;
+            x-input-code = <10>;
+            y-input-code = <10>;
+            time-to-max-speed-ms = <0>;
         };
     };
 
@@ -252,10 +261,10 @@
 
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans    &trans    &trans    &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans             &trans    &trans    &trans    &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &test MOVE_X(100)  &mkp MB1  &mkp MB3  &mkp MB2  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans             &trans    &trans    &trans    &trans  &trans
+        &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans             &trans
             >;
 
             sensor-bindings = <&scroll_right_left>, <&scroll_up_down>;
