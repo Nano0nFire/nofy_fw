@@ -216,9 +216,9 @@
             tap-ms = <20>;
         };
 
-        test: test {
+        encoder: encoder {
             compatible = "zmk,behavior-input-two-axis";
-            label = "TEST";
+            label = "ENCODER";
             #binding-cells = <1>;
             x-input-code = <10>;
             y-input-code = <10>;
@@ -275,10 +275,10 @@
 
         MOUSE {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans             &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &test MOVE_X(100)  &mkp MB1  &mkp MB3  &mkp MB2  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans             &trans    &trans    &trans    &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans             &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                &trans    &trans    &trans    &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &encoder MOVE_X(100)  &mkp MB1  &mkp MB3  &mkp MB2  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                &trans    &trans    &trans    &trans  &trans
+        &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                &trans
             >;
 
             sensor-bindings = <&scroll_right_left>, <&scroll_up_down>;
@@ -304,10 +304,10 @@
 
         game {
             bindings = <
-&trans  &kp ESC    &kp N1        &kp N2  &kp N3  &kp N4     &kp M    &trans  &trans  &trans  &trans  &trans  &to 0   &trans
-&trans  &kp TAB    &kp Q         &kp W   &kp E   &kp R      &kp T    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LSHFT  &kp A         &kp S   &kp D   &kp F      &kp G    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &kp LCTRL  &kp LEFT_ALT  &trans  &kp F1  &kp SPACE  &test    &trans  &trans  &trans
+&trans  &kp ESC    &kp N1        &kp N2  &kp N3  &kp N4     &kp M       &trans  &trans  &trans  &trans  &trans  &to 0   &trans
+&trans  &kp TAB    &kp Q         &kp W   &kp E   &kp R      &kp T       &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LSHFT  &kp A         &kp S   &kp D   &kp F      &kp G       &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &kp LCTRL  &kp LEFT_ALT  &trans  &kp F1  &kp SPACE  &encoder    &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_DOWN C_VOLUME_UP>;
