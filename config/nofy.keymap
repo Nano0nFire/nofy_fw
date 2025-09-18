@@ -154,6 +154,7 @@
                 <&macro_press>,
                 <&kp TAB>,
                 <&macro_tap>,
+                <&macro_wait_time 150>,
                 <&kp LEFT_WIN>,
                 <&macro_release>;
 
