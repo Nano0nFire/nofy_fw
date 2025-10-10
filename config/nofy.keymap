@@ -273,7 +273,9 @@
         &trans      &trans     &kp PRINTSCREEN  &trans      &kp LC(C)  &kp LC(V)    &trans  &trans  &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp BACKSPACE DELETE>;
+            sensor-bindings =
+                <&inc_dec_kp BACKSPACE DELETE>,
+                <&inc_dec_kp PAGE_UP PAGE_DOWN>;
         };
 
         MOUSE {
