@@ -155,6 +155,7 @@
                 <&macro_press>,
                 <&kp TAB>,
                 <&macro_tap>,
+                <&macro_wait_time 150>,
                 <&kp LEFT_WIN>,
                 <&macro_release>;
 
@@ -272,6 +273,8 @@
 &trans  &trans      &trans     &kp LS(N8)       &kp LS(N9)  &trans     &trans       &trans  &trans  &trans  &trans  &trans  &trans  &trans
         &trans      &trans     &kp PRINTSCREEN  &trans      &kp LC(C)  &kp LC(V)    &trans  &trans  &trans
             >;
+
+            sensor-bindings = <&inc_dec_kp BACKSPACE DELETE>;
         };
 
         MOUSE {
