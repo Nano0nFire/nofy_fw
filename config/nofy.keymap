@@ -2,6 +2,7 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
@@ -95,45 +96,6 @@
     };
 
     macros {
-        to_layer_0: to_layer_0 {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
-            label = "TO_LAYER_0";
-        };
-
-        exit_AML: exit_AML {
-            compatible = "zmk,behavior-macro";
-            wait-ms = <0>;
-            tap-ms = <0>;
-            #binding-cells = <0>;
-            bindings = <&tog_off 4>;
-            label = "exit_AML";
-        };
-
-        kp_exit_AML: kp_exit_AML {
-            compatible = "zmk,behavior-macro-one-param";
-            wait-ms = <0>;
-            tap-ms = <0>;
-            #binding-cells = <1>;
-            bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER &exit_AML>;
-            label = "KP_exit_AML";
-        };
-
-        scroll_up: scroll_up {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&msc SCRL_UP>;
-            label = "SCROLL_UP";
-        };
-
-        scroll_down: scroll_down {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&msc SCRL_DOWN>;
-            label = "SCROLL_DOWN";
-        };
-
         test: sg {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -199,18 +161,16 @@
             quick-tap-ms = <200>;
         };
 
-        scroll_up_down: scroll_up_down {
+        scroll_up_down: mouse_wheel_up_down {
             compatible = "zmk,behavior-sensor-rotate";
-            label = "SCROLL_UP_DOWN";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
 
             tap-ms = <20>;
         };
 
-        scroll_right_left: scroll_right_left {
+        scroll_right_left: mouse_wheel_right_left {
             compatible = "zmk,behavior-sensor-rotate";
-            label = "SCROLL_RIGHT_LEFT";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
 
