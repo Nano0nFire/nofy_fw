@@ -175,15 +175,6 @@
 
             tap-ms = <20>;
         };
-
-        encoder: encoder {
-            compatible = "zmk,behavior-input-two-axis";
-            label = "ENCODER";
-            #binding-cells = <1>;
-            x-input-code = <10>;
-            y-input-code = <10>;
-            time-to-max-speed-ms = <0>;
-        };
     };
 
     keymap {
