@@ -2,7 +2,6 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
@@ -269,10 +268,10 @@
 
         game {
             bindings = <
-&trans  &kp ESC    &kp N1        &kp N2  &kp N3  &kp N4     &kp M       &trans  &trans  &trans  &trans  &trans  &to 0   &trans
-&trans  &kp TAB    &kp Q         &kp W   &kp E   &kp R      &kp T       &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LSHFT  &kp A         &kp S   &kp D   &kp F      &kp G       &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &kp LCTRL  &kp LEFT_ALT  &trans  &kp F1  &kp SPACE  &encoder    &trans  &trans  &trans
+&trans  &kp ESC    &kp N1        &kp N2  &kp N3  &kp N4     &kp M     &trans  &trans  &trans  &trans  &trans  &to 0   &trans
+&trans  &kp TAB    &kp Q         &kp W   &kp E   &kp R      &kp T     &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LSHFT  &kp A         &kp S   &kp D   &kp F      &kp G     &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &kp LCTRL  &kp LEFT_ALT  &trans  &kp F1  &kp SPACE  &trans    &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_DOWN C_VOLUME_UP>;
