@@ -69,4 +69,12 @@
 &trackball_central_listener {
     status = "okay";
     device = <&trackball_central>;
+
+    scroller {
+        layers = <4>;
+        input-processors = <
+            &zip_xy_to_scroll_mapper
+            &zip_scroll_scaler 3 2
+        >;
+    };
 };
