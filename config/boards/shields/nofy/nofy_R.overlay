@@ -71,7 +71,7 @@
     device = <&trackball_central>;
 
     scroller {
-        layers = <3>;
+        layers = <5>;
         input-processors = <
             &zip_xy_to_scroll_mapper
             &zip_scroll_scaler 1 6
