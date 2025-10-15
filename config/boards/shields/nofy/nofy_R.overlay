@@ -96,6 +96,13 @@
         >;
     };
 
+    baller {
+        layers = <2>;
+        input-processors = <
+            &zip_keybind_keys
+        >;
+    };
+
     scroller {
         layers = <5>;
         input-processors = <
