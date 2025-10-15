@@ -93,7 +93,7 @@
         layers = <1>;
         input-processors = <
             &zip_xy_transform INPUT_TRANSFORM_Y_INVERT
-            &zip_xy_scaler 2 1
+            &zip_xy_scaler 3 1
         >;
     };
 
@@ -101,7 +101,7 @@
         layers = <2>;
         input-processors = <
             &zip_xy_transform INPUT_TRANSFORM_Y_INVERT
-            &zip_xy_scaler 1 1000
+            &zip_xy_scaler 1 10
             &zip_keybind_keys
         >;
     };
