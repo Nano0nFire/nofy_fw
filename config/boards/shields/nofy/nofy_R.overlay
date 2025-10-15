@@ -73,9 +73,9 @@
         track_remainders;
         bindings = <&kp RIGHT>,
                   <&kp LEFT>,
-                  <&kp DOWN>,
-                  <&kp UP>;
-        tick = <40>;
+                  <&kp UP>,
+                  <&kp DOWN>;
+        tick = <2>;
         wait-ms = <0>;
         tap-ms = <10>;
         // mode = <1>
@@ -101,7 +101,7 @@
         layers = <2>;
         input-processors = <
             &zip_xy_transform INPUT_TRANSFORM_Y_INVERT
-            &zip_xy_scaler 1 10
+            &zip_xy_scaler 1 40
             &zip_keybind_keys
         >;
     };
