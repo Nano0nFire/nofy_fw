@@ -111,6 +111,7 @@
             bindings =
                 <&kp LEFT_WIN>,
                 <&macro_press>,
+                <&macro_wait_time 20>,
                 <&kp TAB>,
                 <&macro_tap>,
                 <&macro_wait_time 150>,
