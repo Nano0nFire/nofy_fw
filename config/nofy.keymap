@@ -184,7 +184,9 @@
         label = "jis_GRAVE";
         #binding-cells = <0>;
         bindings = <&kp LS(LBKT)>, <&kp EQUAL>;
- //通常時でもレフトシフトするようにしてある。
+
+        //通常時でもレフトシフトするようにしてある。
+
         mods = <(MOD_LSFT|MOD_RSFT)>;
         keep-mods = <(MOD_LSFT|MOD_RSFT)>;  //shiftを押しっぱなしにするための記述
     };
@@ -317,7 +319,9 @@
         label = "jis_BSLH";
         #binding-cells = <0>;
         bindings = <&kp INT3>, <&kp INT3>;
- //INT3ではないかも
+
+        //INT3ではないかも
+
         mods = <(MOD_LSFT|MOD_RSFT)>;
         keep-mods = <(MOD_LSFT|MOD_RSFT)>;
     };
@@ -352,7 +356,7 @@
 
         default_layer {
             bindings = <
-&win_tab       &kp Q             &kp W         &kp E         &kp R                &kp T                        &mt_trans ESCAPE 0      &mt_trans ESC 0        &kp Y          &kp U          &kp I      &kp O    &kp P        &kp F1
+&kp LA(TAB)    &kp Q             &kp W         &kp E         &kp R                &kp T                        &mt_trans ESCAPE 0      &mt_trans ESC 0        &kp Y          &kp U          &kp I      &kp O    &kp P        &kp F1
 &kp LC(Z)      &kp A             &kp S         &kp D         &kp F                &kp G                        &kp MINUS               &kp SEMI               &kp H          &kp J          &kp K      &kp L    &lt 4 ENTER  &kp F2
 &kp LS(LC(Z))  &kp Z             &kp X         &kp C         &kp V                &kp B                        &jis_LBKT               &jis_RBKT              &kp N          &kp M          &kp COMMA  &kp DOT  &lt 5 SLASH  &kp F3
                &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_WIN  &HoldToLayer 2 LEFT  &HoldToKey LEFT_SHIFT SPACE  &HoldToLayer 1 RIGHT    &HoldToLayer 3 DELETE  &kp BACKSPACE  &kp BACKSLASH
