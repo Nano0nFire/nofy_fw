@@ -5,9 +5,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
-#define MOUSE 4
-#define SCROLL 5
-#define NUM 6
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 100
 
 // 参考https://note.com/kloir_z/n/n314e739f03a1
@@ -444,10 +441,10 @@
 
         layer_8 {
             bindings = <
-&none   &none   &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans
+&none   &none   &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none  &none
+&none   &none   &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none  &none
+&none   &none   &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none  &none
+        &none   &none  &none  &none  &none  &none    &none  &none  &none
             >;
         };
     };
