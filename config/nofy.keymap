@@ -2,6 +2,7 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
@@ -346,9 +347,9 @@
 
         default_layer {
             bindings = <
-&kp LA(TAB)    &kp Q             &kp W         &kp E         &kp R                &kp T                        &mt_trans ESCAPE 0      &mt_trans ESC 0        &kp Y          &kp U      &kp I      &kp O    &kp P        &kp F1
-&kp LC(Z)      &kp A             &kp S         &kp D         &kp F                &kp G                        &kp MINUS               &kp SEMI               &kp H          &kp J      &kp K      &kp L    &lt 4 ENTER  &kp F2
-&kp LS(LC(Z))  &kp Z             &kp X         &kp C         &kp V                &kp B                        &jis_LBKT               &jis_RBKT              &kp N          &kp M      &kp COMMA  &kp DOT  &lt 5 SLASH  &kp F3
+&kp LA(TAB)    &kp Q             &kp W         &kp E         &kp R                &kp T                        &mt_trans ESCAPE 0      &mt_trans ESC 0        &kp Y          &kp U      &kp I      &kp O    &kp P        &bt BT_SEL 1
+&kp LC(Z)      &kp A             &kp S         &kp D         &kp F                &kp G                        &kp MINUS               &kp SEMI               &kp H          &kp J      &kp K      &kp L    &lt 4 ENTER  &bt BT_SEL 2
+&kp LS(LC(Z))  &kp Z             &kp X         &kp C         &kp V                &kp B                        &jis_LBKT               &jis_RBKT              &kp N          &kp M      &kp COMMA  &kp DOT  &lt 5 SLASH  &bt BT_SEL 3
                &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_WIN  &HoldToLayer 2 LEFT  &HoldToKey LEFT_SHIFT SPACE  &HoldToLayer 1 RIGHT    &HoldToLayer 3 DELETE  &kp BACKSPACE  &jis_BSLH
             >;
 
